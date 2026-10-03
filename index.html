@@ -3,28 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#fff8e9" />
-    <meta
-      name="description"
-      content="A joyful, interactive Teacher's Month greeting made with gratitude."
-    />
-    <title>It's Happy Teacher's Month!</title>
+    <meta name="theme-color" content="#102642" />
+    <meta name="description" content="An interactive Teacher's Month greeting for Sir Joel." />
+    <title>Happy Teacher's Month!</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23ffd54f'/%3E%3Cpath d='M14 18h36v28H14z' fill='%231b365d'/%3E%3Cpath d='M19 24h26v3H19zm0 7h20v3H19zm0 7h14v3H19z' fill='%23fff8e9'/%3E%3Cpath d='M45 14l2 5 5 2-5 2-2 5-2-5-5-2 5-2z' fill='%23ff6f61'/%3E%3C/svg%3E"
-    />
-    <link rel="stylesheet" href="./styles.css?v=20261003-2" />
-    <link rel="stylesheet" href="./visuals.css?v=20261003-4" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./rebuild.css?v=20261003-1" />
   </head>
   <body>
-    <div class="paper-noise" aria-hidden="true"></div>
     <canvas id="confetti" aria-hidden="true"></canvas>
 
     <header class="topbar">
@@ -32,163 +19,63 @@
         <span class="brand-mark" aria-hidden="true">✦</span>
         <span>For Our Professor</span>
       </button>
-
       <div class="progress" aria-label="Page progress">
-        <span id="pageNumber">.</span>
-        <div class="progress-track" aria-hidden="true"><span id="progressFill"></span></div>
-        <span>.</span>
+        <span id="pageNumber">01</span>
+        <span class="progress-track" aria-hidden="true"><span id="progressFill" style="width: 33.333%"></span></span>
+        <span>03</span>
       </div>
       <button class="sound-toggle" id="soundToggle" type="button" aria-pressed="false">
         <span aria-hidden="true">♪</span><span class="sound-label">Sound off</span>
       </button>
-      
     </header>
 
     <main class="pages" id="pages">
       <section class="page page--hero is-active" data-page="0" aria-labelledby="heroTitle">
-        <img class="celebration-frame" src="./celebration-frame.png" alt="" aria-hidden="true" />
-        <div class="hero-copy">
-          <p class="eyebrow">A little celebration for someone amazing</p>
+        <div class="hero-card" id="portraitCard" tabindex="0">
+          <p class="section-kicker">A little celebration</p>
           <h1 id="heroTitle"><span>Happy</span> Teacher's Month!</h1>
-          <p class="hero-note">Para sa lessons, sa patience, at sa lahat ng moments that made learning feel possible.</p>
+          <p class="hero-copy">Para sa lessons, patience, at lahat ng moments that made learning feel possible.</p>
+          <button class="primary-button" type="button" data-next>Open the note <span aria-hidden="true">✦</span></button>
         </div>
-
-        <div class="portrait-wrap">
-          <div class="portrait-card" id="portraitCard" tabindex="0" aria-label="Interactive professor photo card">
-            <div class="portrait-tape" aria-hidden="true"></div>
-            <div class="portrait-photo" id="portraitPhoto">
-              <div class="portrait-placeholder">
-                <span class="teacher-emoji" aria-hidden="true">🧑‍🏫</span>
-                <strong>IMAGE HERE1</strong>
-                <small>IMAGE HERE2</small>
-              </div>
-            </div>
-            <div class="portrait-caption">
-              <span>PROFESSOR AMAZING😉</span>
-              <span class="hand-heart" aria-hidden="true">♡</span>
-            </div>
-          </div>
-          <p class="tilt-hint"><span aria-hidden="true">↗</span>HIHIHIHIHIH</p>
-        </div>
-
-        <button class="next-button" type="button" data-next>
-          OPEN MEEE(∩˃o˂∩)♡
-          <span class="button-spark" aria-hidden="true">✦</span>
-        </button>
+        <p class="hero-signature">Made with gratitude for Sir Joel</p>
       </section>
 
-      <section class="page page--notes" data-page="1" aria-labelledby="notesTitle" aria-hidden="true">
-        <span class="notes-spark notes-spark--one" aria-hidden="true">✦</span>
-        <span class="notes-spark notes-spark--two" aria-hidden="true">♡</span>
-        <span class="notes-spark notes-spark--three" aria-hidden="true">✦</span>
-        <div class="notes-heading">
-          <span class="chapter-label"><i aria-hidden="true">✎</i> A NOTE FOR SIR JOEL</span>
-          <h2 id="notesTitle">A thank-you, from the heart.</h2>
-          <p>For the patience, guidance, and lessons we will carry with us.</p>
-        </div>
+      <section class="page page--note" data-page="1" aria-labelledby="noteTitle" aria-hidden="true">
+        <article class="letter-card">
+          <div class="letter-card__top"><span aria-hidden="true">✎</span><p>FROM YOUR STUDENTS</p></div>
+          <h2 id="noteTitle">A thank-you from the heart.</h2>
+          <p>Sir Joel, thank you po for your patience and for teaching us with care—even on days na makukulit kami. Marami po kaming natutuhan from you, and we are grateful for every reminder and every lesson.</p>
+          <blockquote><span aria-hidden="true">✦</span><p><strong>You taught us to keep trying.</strong> Your lessons made us more attentive, more willing to improve, and more confident to do better.</p></blockquote>
+          <footer>Patience · Guidance · Inspiration <span aria-hidden="true">♡</span></footer>
+          <button class="primary-button primary-button--ink" type="button" data-next>One more surprise <span aria-hidden="true">♪</span></button>
+        </article>
+      </section>
 
-        <div class="notes-showcase">
-          <aside class="teacher-art-card" aria-label="Teacher appreciation card artwork">
-            <img src="./teacher-appreciation-card.png" alt="Handmade Teacher's Month card decorated with sunflowers, flowers, hearts, an apple, and pencils" />
-            <div class="teacher-art-copy">
-              <span>FOR SIR JOEL</span>
-              <strong>A big<br />thank you.</strong>
-              <small>For every lesson, every reminder, and every bit of patience. ♡</small>
-            </div>
-          </aside>
-
-          <article class="letter-panel">
-            <div class="letter-panel__top">
-              <span class="letter-panel__mark" aria-hidden="true">✦</span>
-              <p>FROM YOUR STUDENTS</p>
-            </div>
-            <h3>What we appreciate most</h3>
-            <p class="letter-panel__message">
-              Sir Joel, thank you po for your patience and for continuing to teach us with care—even on days na makukulit kami. Marami po kaming natutuhan from you, and we are grateful for every reminder and every lesson.
-            </p>
-            <div class="lesson-note">
-              <span aria-hidden="true">☀</span>
-              <p><strong>You taught us to keep trying.</strong> Your lessons made us more attentive, more willing to improve, and more confident to do better.</p>
-            </div>
-            <div class="letter-panel__footer">
-              <span>Patience · guidance · inspiration</span>
-              <span aria-hidden="true">♡</span>
-            </div>
+      <section class="page page--song" data-page="2" aria-labelledby="songTitle" aria-hidden="true">
+        <div class="song-layout">
+          <div class="song-copy">
+            <p class="section-kicker">A special playlist</p>
+            <h2 id="songTitle">This song is for you po.</h2>
+            <p>A small soundtrack for the big difference you make.</p>
+            <p class="song-quote">“For every lesson that stayed with us, this one is for you.”</p>
+          </div>
+          <article class="player-card">
+            <div class="player-card__header"><span><i></i> NOW PLAYING</span><span>FOR SIR JOEL</span></div>
+            <div class="video-shell"><iframe src="https://www.youtube-nocookie.com/embed/Jw1YOW_Y0rA?rel=0" title="A song for Sir Joel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+            <div class="track-info"><span aria-hidden="true">♫</span><p><strong>A song for Sir Joel</strong><small>Pressed with love by your students</small></p><span aria-hidden="true">♡</span></div>
           </article>
         </div>
-
-        <div class="page-actions">
-          <button class="next-button next-button--small" type="button" data-next>
-            One more surprise
-            <span class="button-spark" aria-hidden="true">♪</span>
-          </button>
-        </div>
-      </section>
-
-      <sectin class="page page--music" data-page="2" aria-labelledby="musicTitle" aria-hidden="true">
-        <span class="music-star music-star-one" aria-hidden="true">✦</span>
-        <span class="music-star music-star-two" aria-hidden="true">♪</span>
-        <span class="music-star music-star-three" aria-hidden="true">✦</span>
-        <div class="music-copy">
-          <div class="music-label"><span aria-hidden="true">♫</span> A SPECIAL PLAYLIST</div>
-          <p class="eyebrow">Press to play, Prof!</p>
-          <h2 id="musicTitle">This song is for you po.</h2>
-          <p>A little soundtrack for the big difference you make.</p>
-          <p class="song-ready">A song chosen especially for you Sir Joel—just press play. ♡</p>
-          <p class="music-quote">“For every lesson that stayed with us, this one is for you.”</p>
-        </div>
-
-        <div class="music-stage">
-          <figure class="album-art">
-            <img src="./professor-song-art.png" alt="Music-themed Teacher's Month artwork with vinyl records, hearts, notes, pencils, books, and flowers" />
-            <figcaption><span aria-hidden="true">♫</span> A little song, with gratitude</figcaption>
-          </figure>
-          <div class="player-card" id="playerCard">
-            <div class="player-header" aria-hidden="true">
-              <span class="now-playing"><i></i> NOW PLAYING</span>
-              <span>FOR SIR JOEL</span>
-            </div>
-            <div class="video-shell" id="videoShell">
-              <iframe
-                src="https://www.youtube-nocookie.com/embed/Jw1YOW_Y0rA?rel=0"
-                title="A song for Sir Joel"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen></iframe>
-            </div>
-            <div class="equalizer" aria-hidden="true">
-              <i></i><i></i><i></i><i></i><i></i><i></i></i>
-            </div>
-            <div class="song-credit" aria-hidden="true">
-              <span class="song-credit-icon">♫</span>
-              <span><strong>A song for Sir Joel</strong><small>Pressed with love by your students</small></span>
-              <span class="song-credit-heart">♡</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="final-note">
-          <span aria-hidden="true">✦</span>
-          <p><strong>Thank you for helping us grow.</strong><small>Made with gratitude, for all the lessons that stay.</spall></p>
-          <span aria-hidden="true">✦</span>
-        </div>
-
-        <div class="page-actions">
-          <button class="next-button next-button--small" type="button" id="celebrateAgain">
-            Celebrate again
-            <span class="button-spark" aria-hidden="true">✦</span>
-          </button>
-        </div>
+        <div class="song-footer"><strong>Thank you for helping us grow.</strong><span>Made with gratitude, for all the lessons that stay.</span></div>
+        <button class="primary-button song-button" type="button" id="celebrateAgain">Celebrate again <span aria-hidden="true">✦</span></button>
       </section>
     </main>
 
     <nav class="page-dots" aria-label="Greeting pages">
       <button class="is-active" type="button" data-go="0" aria-label="Page 1: Greeting" aria-current="page"></button>
-      <button type="button" data-go="1" aria-label="Page 2: Appreciation messages"></button>
+      <button type="button" data-go="1" aria-label="Page 2: Appreciation note"></button>
       <button type="button" data-go="2" aria-label="Page 3: Song"></button>
     </nav>
-
-    <div class="cursor-star" id="cursorStar" aria-hidden="true">✦</div>
+    <span class="cursor-star" id="cursorStar" aria-hidden="true">✦</span>
     <script src="./app.js?v=20261003-2"></script>
   </body>
 </html>
