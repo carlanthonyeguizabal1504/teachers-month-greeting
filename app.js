@@ -148,41 +148,6 @@ document.querySelector("#celebrateAgain").addEventListener("click", () => {
   window.setTimeout(() => goToPage(0), 550);
 });
 
-let audioContext;
-let soundEnabled = false;
-const soundToggle = document.querySelector("#soundToggle");
-
-function chime() {
-  if (!soundEnabled) return;
-  audioContext ||= new AudioContext();
-  const now = audioContext.currentTime;
-  [523.25, 659.25, 783.99].forEach((frequency, index) => {
-    const oscillator = audioContext.createOscillator();
-    const gain = audioContext.createGain();
-    oscillator.type = "sine";
-    oscillator.frequency.value = frequency;
-    gain.gain.setValueAtTime(0, now + index * 0.08);
-    gain.gain.linearRampToValueAtTime(0.08, now + index * 0.08 + 0.02);
-    gain.gain.exponentialRampToValueAtTime(0.001, now + index * 0.08 + 0.42);
-    oscillator.connect(gain).connect(audioContext.destination);
-    oscillator.start(now + index * 0.08);
-    oscillator.stop(now + index * 0.08 + 0.45);
-  });
-}
-
-soundToggle.addEventListener("click", () => {
-  soundEnabled = !soundEnabled;
-  soundToggle.setAttribute("aria-pressed", String(soundEnabled));
-  soundToggle.querySelector(".sound-label").textContent = soundEnabled ? "Sound on" : "Sound off";
-  if (soundEnabled) chime();
-});
-
-document.querySelectorAll("button").forEach((button) => {
-  button.addEventListener("click", () => {
-    if (button !== soundToggle) chime();
-  });
-});
-
 if (window.matchMedia("(pointer: fine)").matches && !reduceMotion.matches) {
   document.addEventListener("pointermove", (event) => {
     cursorStar.style.opacity = "0.85";
