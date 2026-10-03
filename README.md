@@ -1,23 +1,10 @@
 # Teacher's Month Greeting Website
 
-An interactive three-page greeting with a professor portrait card, appreciation messages, confetti, sound effects, and a YouTube song player.
+An interactive three-page greeting for Sir Joel with a professor portrait card, appreciation messages, confetti, sound effects, and an embedded YouTube song player.
 
-## Add the appreciation messages
+## Edit the appreciation messages
 
-Open `index.html` in VS Code and search for these comments:
-
-- `MESSAGE 1`
-- `MESSAGE 2`
-
-Place the message between the opening and closing `<p class="message-text">` tags. Example:
-
-```html
-<p class="message-text">
-  Thank you for inspiring us every day.
-</p>
-```
-
-The messages are static. Visitors cannot edit them on the website.
+Open `index.html` in VS Code and edit the text inside the two `<p class="message-text">` elements. The messages are static, so visitors cannot edit them on the website.
 
 ## Add the professor's photo
 
