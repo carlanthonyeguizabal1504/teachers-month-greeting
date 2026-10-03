@@ -78,56 +78,6 @@ portraitCard.addEventListener("pointermove", (event) => {
 portraitCard.addEventListener("pointerleave", resetPortrait);
 portraitCard.addEventListener("blur", resetPortrait);
 
-function extractYouTubeId(value) {
-  try {
-    const url = new URL(value.trim());
-    const host = url.hostname.replace("www.", "");
-    if (host === "youtu.be") return url.pathname.split("/").filter(Boolean)[0] || null;
-    if (host.endsWith("youtube.com")) {
-      if (url.pathname === "/watch") return url.searchParams.get("v");
-      const parts = url.pathname.split("/").filter(Boolean);
-      if (["embed", "shorts", "live"].includes(parts[0])) return parts[1] || null;
-    }
-  } catch {
-    return null;
-  }
-  return null;
-}
-
-function loadSong(url, announce = true) {
-  const id = extractYouTubeId(url);
-  const status = document.querySelector("#formStatus");
-  if (!id || !/^[\w-]{6,20}$/.test(id)) {
-    status.textContent = "That link doesn't look like a YouTube video. Try copying it again.";
-    status.classList.add("is-error");
-    return false;
-  }
-
-  const shell = document.querySelector("#videoShell");
-  shell.innerHTML = `<iframe
-    src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}?rel=0"
-    title="A song for our professor"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    referrerpolicy="strict-origin-when-cross-origin"
-    allowfullscreen></iframe>`;
-  localStorage.setItem("teacher-song-url", url.trim());
-  status.textContent = announce ? "Song loaded — press play when the moment feels right!" : "Your saved song is ready.";
-  status.classList.remove("is-error");
-  return true;
-}
-
-document.querySelector("#songForm").addEventListener("submit", (event) => {
-  event.preventDefault();
-  const url = document.querySelector("#youtubeUrl").value;
-  if (loadSong(url)) burstConfetti(42);
-});
-
-const storedSong = localStorage.getItem("teacher-song-url");
-if (storedSong) {
-  document.querySelector("#youtubeUrl").value = storedSong;
-  loadSong(storedSong, false);
-}
-
 function resizeCanvas() {
   const ratio = Math.min(window.devicePixelRatio || 1, 2);
   confettiCanvas.width = Math.floor(window.innerWidth * ratio);
