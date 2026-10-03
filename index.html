@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./rebuild.css?v=20261003-3" />
+    <link rel="stylesheet" href="./rebuild.css?v=20261003-4" />
   </head>
   <body>
     <canvas id="confetti" aria-hidden="true"></canvas>
@@ -28,11 +28,22 @@
 
     <main class="pages" id="pages">
       <section class="page page--hero is-active" data-page="0" aria-labelledby="heroTitle">
+        <div class="hero-layout">
         <div class="hero-card" id="portraitCard" tabindex="0">
           <p class="section-kicker">A little celebration</p>
           <h1 id="heroTitle"><span>Happy</span> Teacher's Month!</h1>
           <p class="hero-copy">Para sa lessons, patience, at lahat ng moments that made learning feel possible.</p>
           <button class="primary-button" type="button" data-next>Open the note <span aria-hidden="true">✦</span></button>
+        </div>
+        <figure class="professor-photo">
+          <!-- Replace this placeholder with an img using the professor's photo. -->
+          <div class="professor-photo__placeholder" role="img" aria-label="Placeholder for Sir Joel's photo">
+            <span aria-hidden="true">♡</span>
+            <strong>Sir Joel’s photo</strong>
+            <small>Photo to follow</small>
+          </div>
+          <figcaption>Our professor, Sir Joel</figcaption>
+        </figure>
         </div>
         <p class="hero-signature">Made with gratitude for Sir Joel</p>
       </section>
