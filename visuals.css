@@ -261,3 +261,10 @@
   .album-art { min-height: 330px; }
   .page--music .music-copy h2 { font-size: clamp(3rem, 16vw, 4.5rem); }
 }
+
+.song-credit strong,
+.song-credit small,
+.final-note p strong,
+.final-note p small { display: block; }
+.song-credit small { margin-top: 3px; color: #6f7480; font-size: .65rem; }
+.final-note p small { margin-top: 6px; color: #6f7480; font-family: "DM Sans", system-ui, sans-serif; font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
