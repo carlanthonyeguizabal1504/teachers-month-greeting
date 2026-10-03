@@ -1,117 +1,256 @@
-/* Illustrated Page 2 and Page 3 compositions */
+/* Clean final compositions: the artwork is the hero, the message stays easy to read. */
 .page--notes {
-  isolation: isolate;
-  grid-template-rows: auto minmax(0, 1fr) auto auto;
-  gap: 22px;
-  background:
-    radial-gradient(circle at 7% 14%, rgba(246, 167, 173, .5), transparent 18rem),
-    radial-gradient(circle at 93% 85%, rgba(120, 189, 234, .45), transparent 18rem),
-    linear-gradient(rgba(255,248,233,.92), rgba(255,248,233,.92)),
-    repeating-linear-gradient(0deg, transparent 0 31px, rgba(23,52,93,.08) 31px 32px);
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  align-content: center;
+  gap: clamp(14px, 2.4vh, 26px);
+  overflow-y: auto;
 }
 
-.notes-spark,
-.music-star {
-  position: absolute;
-  z-index: 3;
-  color: #ef6a62;
-  font-size: clamp(1.3rem, 2vw, 2rem);
-  pointer-events: none;
-  animation: visual-float 4s ease-in-out infinite;
+.page--notes .notes-heading {
+  max-width: 890px;
+  margin: 0 auto;
+  text-align: center;
 }
-.notes-spark--one { top: 20%; left: 7%; }
-.notes-spark--two { top: 14%; right: 10%; color: #17345d; animation-delay: -1.2s; }
-.notes-spark--three { bottom: 17%; right: 6%; color: #d39b24; animation-delay: -2.3s; }
-.music-star--one { top: 16%; left: 6%; }
-.music-star--two { bottom: 16%; left: 42%; color: #17345d; animation-delay: -1.5s; }
-.music-star--three { top: 13%; right: 7%; color: #d39b24; animation-delay: -2.6s; }
 
-.chapter-label,
-.music-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 14px;
-  padding: 8px 13px;
-  border: 1px solid rgba(23,52,93,.15);
-  border-radius: 99px;
+.page--notes .chapter-label { margin-bottom: 10px; }
+
+.page--notes h2 {
+  margin: 0;
   color: #17345d;
-  background: rgba(255,253,247,.72);
-  box-shadow: 0 8px 18px rgba(23,52,93,.08);
+  font-size: clamp(2.15rem, 4.25vw, 4.15rem);
+  line-height: .98;
+  letter-spacing: -.055em;
+}
+
+.page--notes .notes-heading > p:last-child {
+  margin: 11px auto 0;
+  font-size: clamp(.9rem, 1.2vw, 1.03rem);
+  line-height: 1.45;
+}
+
+.page--notes .notes-showcase {
+  display: grid;
+  grid-template-columns: minmax(280px, .78fr) minmax(400px, 1.08fr);
+  align-items: center;
+  gap: clamp(28px, 5vw, 72px);
+  width: min(100%, 1120px);
+  margin: 0 auto;
+  align-self: center;
+}
+
+.page--notes .teacher-art-card {
+  justify-self: end;
+  width: min(100%, 405px);
+  min-height: 0;
+  aspect-ratio: 4 / 5;
+  border: 7px solid #fffdf7;
+  border-radius: 24px 7px 24px 7px;
+  box-shadow: 14px 16px 0 rgba(120,189,234,.22), 0 25px 45px rgba(23,52,93,.18);
+}
+
+.page--notes .teacher-art-card img { object-fit: cover; }
+
+.letter-panel {
+  position: relative;
+  justify-self: start;
+  width: min(100%, 565px);
+  padding: clamp(30px, 3.2vw, 46px);
+  overflow: hidden;
+  border: 1px solid rgba(23,52,93,.12);
+  border-radius: 26px 9px 26px 9px;
+  color: #17345d;
+  background: rgba(255,253,247,.92);
+  box-shadow: 0 22px 48px rgba(23,52,93,.12), 11px 12px 0 rgba(246,170,168,.2);
+}
+
+.letter-panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 13%;
+  width: 110px;
+  height: 10px;
+  border-radius: 0 0 7px 7px;
+  background: #f7c94a;
+}
+
+.letter-panel__top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.letter-panel__mark {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 50%;
+  color: #17345d;
+  background: #f7c94a;
+}
+
+.letter-panel__top p {
+  margin: 0;
+  color: #69758a;
   font-size: .66rem;
   font-weight: 800;
   letter-spacing: .13em;
 }
-.chapter-label i { color: #ef6a62; font-style: normal; font-size: .95rem; }
-.notes-heading { position: relative; z-index: 2; }
 
-.notes-showcase {
-  position: relative;
-  z-index: 2;
+.letter-panel h3 {
+  max-width: 420px;
+  margin: 0;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(1.82rem, 3.1vw, 2.75rem);
+  line-height: 1;
+  letter-spacing: -.05em;
+}
+
+.letter-panel__message {
+  max-width: 510px;
+  margin: 20px 0 0;
+  color: #36445a;
+  font-size: clamp(.93rem, 1.17vw, 1.02rem);
+  line-height: 1.65;
+}
+
+.lesson-note {
   display: grid;
-  grid-template-columns: minmax(285px, .55fr) minmax(0, 1fr);
-  align-items: stretch;
-  gap: clamp(24px, 3.5vw, 42px);
-  width: min(100%, 1240px);
-  margin-inline: auto;
+  grid-template-columns: 38px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  margin-top: 24px;
+  padding: 16px;
+  border-left: 3px solid #ef6a62;
+  border-radius: 0 14px 14px 0;
+  background: #fff0ef;
 }
-.teacher-art-card {
-  position: relative;
-  min-height: 398px;
-  overflow: hidden;
-  border: 7px solid #fffdf7;
-  border-radius: 22px 7px 22px 7px;
-  box-shadow: 16px 18px 0 rgba(120,189,234,.25), 0 22px 50px rgba(23,52,93,.18);
-  transform: rotate(-1.7deg);
-  transition: transform .38s ease, box-shadow .38s ease;
-}
-.teacher-art-card:hover { transform: rotate(0deg) translateY(-7px); box-shadow: 19px 23px 0 rgba(239,106,98,.23), 0 30px 60px rgba(23,52,93,.22); }
-.teacher-art-card img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.teacher-art-copy { position: absolute; inset: 20% 10% 15%; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fffdf7; text-align: center; }
-.teacher-art-copy span { padding: 6px 9px; border: 1px solid rgba(255,253,247,.45); border-radius: 99px; color: #f7c94a; font-size: .59rem; font-weight: 800; letter-spacing: .13em; }
-.teacher-art-copy strong { margin-top: 15px; font-family: "Fraunces", Georgia, serif; font-size: clamp(2.05rem,3vw,3.25rem); font-style: italic; line-height: .9; letter-spacing: -.06em; }
-.teacher-art-copy small { max-width: 220px; margin-top: 17px; color: rgba(255,253,247,.84); font-size: .76rem; font-weight: 600; line-height: 1.5; }
 
-.notes-showcase .note-grid { width: 100%; margin: 0; }
-.message-card { border: 1px solid rgba(255,255,255,.25); }
-.message-card::before { content: ""; position: absolute; top: -42px; right: -39px; width: 135px; height: 135px; border: 1px dashed currentColor; border-radius: 50%; opacity: .2; }
-.message-card-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.card-heart { display: grid; flex: 0 0 auto; place-items: center; width: 31px; height: 31px; margin-top: 14px; border: 1px solid currentColor; border-radius: 50%; font-family: "Fraunces", Georgia, serif; font-size: 1.2rem; opacity: .75; }
-.gratitude-strip { position: relative; z-index: 2; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px; width: fit-content; margin-inline: auto; padding: 11px 19px; border: 1px dashed rgba(23,52,93,.25); border-radius: 99px; color: #17345d; background: rgba(255,253,247,.58); font-size: .7rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
-.gratitude-strip i { color: #ef6a62; font-style: normal; }
+.lesson-note > span {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 50%;
+  color: #17345d;
+  background: #f7c94a;
+}
+
+.lesson-note p { margin: 0; color: #475267; font-size: .86rem; line-height: 1.5; }
+.lesson-note strong { color: #17345d; }
+
+.letter-panel__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 24px;
+  padding-top: 17px;
+  border-top: 1px solid rgba(23,52,93,.14);
+  color: #6b7689;
+  font-size: .62rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.letter-panel__footer > span:last-child { color: #ef6a62; font-family: "Fraunces", Georgia, serif; font-size: 1.5rem; line-height: 0; }
+.page--notes .page-actions { margin-top: 0; }
 
 .page--music {
-  isolation: isolate;
-  background:
-    radial-gradient(circle at 12% 74%, rgba(120,189,234,.32), transparent 22rem),
-    radial-gradient(circle at 90% 18%, rgba(247,201,74,.34), transparent 22rem),
-    linear-gradient(135deg, #dff1fb 0%, #fff8e9 48%, #fbdcdd 100%);
+  grid-template-columns: minmax(280px, .75fr) minmax(520px, 1.25fr);
+  grid-template-rows: minmax(0, 1fr) auto;
+  align-content: center;
+  gap: clamp(24px, 4vw, 72px) clamp(32px, 6vw, 98px);
+  overflow-y: auto;
 }
-.music-label { color: #17345d; background: rgba(255,253,247,.65); }
-.music-label span { color: #ef6a62; font-size: 1rem; }
-.music-quote { max-width: 460px; margin: 25px 0 0 !important; padding-left: 16px; border-left: 3px solid #ef6a62; color: #17345d !important; font-family: "Fraunces", Georgia, serif; font-size: clamp(1.02rem,1.55vw,1.26rem) !important; font-style: italic; line-height: 1.45 !important; }
 
-.music-stage { position: relative; z-index: 2; isolation: isolate; width: min(100%,710px); justify-self: center; padding: clamp(54px,6vw,74px) clamp(24px,5vw,52px) clamp(36px,4vw,52px); }
-.music-art-background { position: absolute; z-index: -1; inset: 0; width: 100%; height: 100%; border: 7px solid #fffdf7; border-radius: 32px 10px 32px 10px; object-fit: cover; box-shadow: 15px 18px 0 rgba(239,106,98,.2), 0 26px 55px rgba(23,52,93,.2); transform: rotate(1deg); }
-.vinyl-record { display: none; }
-.music-stage .player-card { width: 100%; z-index: 2; background: linear-gradient(145deg, rgba(255,253,247,.94), rgba(255,253,247,.79)); }
-.music-ticket { z-index: 4; top: 5px; left: -24px; }
-.player-header { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 0 4px 14px; color: rgba(23,52,93,.62); font-size: .62rem; font-weight: 800; letter-spacing: .13em; }
-.now-playing { display: inline-flex; align-items: center; gap: 7px; color: #17345d; }
-.now-playing i { width: 7px; height: 7px; border-radius: 50%; background: #ef6a62; box-shadow: 0 0 0 4px rgba(239,106,98,.15); animation: visual-pulse 1.5s ease-in-out infinite; }
-.song-credit { display: flex; align-items: center; gap: 11px; margin: 8px 4px 0; color: #17345d; }
-.song-credit-icon { display: grid; flex: 0 0 auto; place-items: center; width: 36px; aspect-ratio: 1; border-radius: 50%; color: #17345d; background: #f7c94a; font-size: 1rem; }
-.song-credit strong,.song-credit small { display:block; }.song-credit strong { font-size:.78rem; }.song-credit small { margin-top:3px; color:#6f7480; font-size:.65rem; }.song-credit-heart { margin-left:auto; color:#ef6a62; font-family:"Fraunces",Georgia,serif; font-size:1.55rem; }
-.final-note p strong,.final-note p small { display:block; }.final-note p small { margin-top:6px; color:#6f7480; font-family:"DM Sans",system-ui,sans-serif; font-size:.68rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+.page--music .music-copy { position: relative; z-index: 2; }
+.page--music .music-copy h2 { margin: 0; color: #17345d; font-size: clamp(3rem, 5.3vw, 5.45rem); line-height: .94; letter-spacing: -.065em; }
+.page--music .music-copy > p:not(.eyebrow) { margin-top: 16px; }
+.page--music .music-copy .song-ready { margin: 22px 0 0; }
+.page--music .music-quote { margin-top: 22px !important; }
 
-@keyframes visual-float { 0%,100% { transform:translateY(0) rotate(0deg); } 50% { transform:translateY(-9px) rotate(12deg); } }
-@keyframes visual-pulse { 0%,100% { box-shadow:0 0 0 4px rgba(239,106,98,.15); } 50% { box-shadow:0 0 0 7px rgba(239,106,98,.04); } }
+.page--music .music-stage {
+  display: grid;
+  grid-template-columns: minmax(210px, .72fr) minmax(320px, 1.28fr);
+  align-items: center;
+  gap: clamp(16px, 2.4vw, 28px);
+  width: min(100%, 860px);
+  padding: 0;
+}
 
-@media (max-width: 900px) { .notes-showcase { grid-template-columns:minmax(230px,.46fr) minmax(0,1fr); }.teacher-art-card { min-height:365px; } }
-@media (max-width: 680px) {
-  .notes-showcase { grid-template-columns:1fr; width:min(100%,440px); }
-  .teacher-art-card { min-height:430px; transform:rotate(-.8deg); }.teacher-art-copy strong { font-size:3rem; }
-  .gratitude-strip { gap:7px 12px; padding:10px 14px; font-size:.59rem; }
-  .music-stage { width:100%; padding:57px 19px 34px; }.music-art-background { border-width:5px; border-radius:24px 8px 24px 8px; }
-  .music-ticket { top:12px; left:2px; max-width:150px; font-size:.49rem; }.player-header { margin-bottom:10px; font-size:.55rem; }.music-quote { margin-top:19px !important; text-align:left; }
+.album-art {
+  position: relative;
+  min-height: 370px;
+  margin: 0;
+  overflow: hidden;
+  border: 7px solid #fffdf7;
+  border-radius: 24px 8px 24px 8px;
+  box-shadow: 12px 16px 0 rgba(239,106,98,.18), 0 22px 44px rgba(23,52,93,.16);
+  transform: rotate(-1.2deg);
+}
+
+.album-art img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.album-art::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 45%, rgba(13,31,56,.65)); pointer-events: none; }
+.album-art figcaption { position: absolute; z-index: 1; right: 18px; bottom: 16px; left: 18px; color: #fffdf7; font-size: .69rem; font-weight: 800; letter-spacing: .06em; line-height: 1.35; }
+.album-art figcaption span { margin-right: 5px; color: #f7c94a; font-size: 1rem; }
+
+.page--music .player-card {
+  width: 100%;
+  padding: clamp(17px, 2.1vw, 26px);
+  border-radius: 25px 9px 25px 9px;
+  background: rgba(255,253,247,.94);
+  box-shadow: 0 21px 48px rgba(23,52,93,.14), 11px 12px 0 rgba(120,189,234,.18);
+  transform: none;
+}
+
+.page--music .player-card:hover { transform: translateY(-5px); }
+.page--music .player-card::before { inset: 10px; border-radius: 18px; }
+.page--music .player-header { margin: 0 3px 14px; }
+.page--music .song-credit { margin: 14px 3px 0; }
+.page--music .music-ticket,
+.page--music .vinyl-record,
+.page--music .music-art-background,
+.page--music .player-sticker { display: none; }
+
+.page--music .final-note {
+  grid-column: 1 / -1;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.page--music .page-actions { grid-column: 1 / -1; }
+
+@media (max-width: 1050px) {
+  .page--notes .notes-showcase { gap: 30px; }
+  .page--notes .teacher-art-card { width: min(100%, 350px); }
+  .page--music { grid-template-columns: minmax(0, .8fr) minmax(440px, 1.2fr); gap: 30px; }
+  .album-art { min-height: 330px; }
+}
+
+@media (max-width: 800px) {
+  .page--notes { align-content: start; }
+  .page--notes .notes-showcase { grid-template-columns: minmax(230px, .7fr) minmax(320px, 1fr); gap: 24px; }
+  .page--notes .teacher-art-card {
+    width: 100%; }
+  .letter-panel { padding: 28px; }
+  .page--music { grid-template-columns: 1fr; grid-template-rows: auto auto auto; }
+  .page--music .music-copy { max-width: 600px; margin: 0 auto; text-align: center; }
+  .page--music .music-copy .eyebrow { justify-content: center; }
+  .page--music .song-ready, .page--music .music-quote { margin-right: auto !important; margin-left: auto !important; text-align: left; }
+  .page--music .music-stage { width: min(100%, 730px); }
+}
+
+@media (max-width: 620px) {
+  .page--notes .notes-showcase { grid-template-columns: 1fr; width: min(100%, 440px); }
+  .page--notes .teacher-art-card { width: min(100%, 360px); justify-self: center; }
+  .letter-panel { width: 100%; justify-self: stretch; }
+  .page--notes h2 { font-size: clamp(2.25rem, 12vw, 3.5rem); }
+  .letter-panel__footer { font-size: .55rem; }
+  .page--music .music-stage { grid-template-columns: 1fr; width: min(100%, 410px); }
+  .album-art { min-height: 330px; }
+  .page--music .music-copy h2 { font-size: clamp(3rem, 16vw, 4.5rem); }
 }
