@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fff8e9" />
+    <meta
+      name="description"
+      content="A joyful, interactive Teacher's Month greeting made with gratitude."
+    />
+    <title>Happy Teacher's Month!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23ffd54f'/%3E%3Cpath d='M14 18h36v28H14z' fill='%231b365d'/%3E%3Cpath d='M19 24h26v3H19zm0 7h20v3H19zm0 7h14v3H19z' fill='%23fff8e9'/%3E%3Cpath d='M45 14l2 5 5 2-5 2-2 5-2-5-5-2 5-2z' fill='%23ff6f61'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="paper-noise" aria-hidden="true"></div>
+    <canvas id="confetti" aria-hidden="true"></canvas>
+
+    <header class="topbar">
+      <button class="brand" type="button" data-go="0" aria-label="Go to the first page">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span>For Our Professor</span>
+      </button>
+
+      <div class="progress" aria-label="Page progress">
+        <span id="pageNumber">01</span>
+        <div class="progress-track" aria-hidden="true"><span id="progressFill"></span></div>
+        <span>03</span>
+      </div>
+
+      <button class="sound-toggle" id="soundToggle" type="button" aria-pressed="false">
+        <span aria-hidden="true">♪</span>
+        <span class="sound-label">Sound off</span>
+      </button>
+    </header>
+
+    <main class="pages" id="pages">
+      <section class="page page--hero is-active" data-page="0" aria-labelledby="heroTitle">
+        <img class="celebration-frame" src="./celebration-frame.png" alt="" aria-hidden="true" />
+        <div class="hero-copy">
+          <p class="eyebrow">A little celebration for someone amazing</p>
+          <h1 id="heroTitle"><span>Happy</span> Teacher's Month!</h1>
+          <p class="hero-note">For the lessons, the patience, and all the moments that made learning feel possible.</p>
+        </div>
+
+        <div class="portrait-wrap">
+          <div class="portrait-card" id="portraitCard" tabindex="0" aria-label="Interactive professor photo card">
+            <div class="portrait-tape" aria-hidden="true"></div>
+            <div class="portrait-photo" id="portraitPhoto">
+              <div class="portrait-placeholder">
+                <span class="teacher-emoji" aria-hidden="true">🧑‍🏫</span>
+                <strong>Your professor's photo</strong>
+                <small>Send the photo to place it here</small>
+              </div>
+            </div>
+            <div class="portrait-caption">
+              <span>To our wonderful professor</span>
+              <span class="hand-heart" aria-hidden="true">♡</span>
+            </div>
+          </div>
+          <p class="tilt-hint"><span aria-hidden="true">↗</span> Move your cursor over the card</p>
+        </div>
+
+        <button class="next-button" type="button" data-next>
+          Open our little note
+          <span class="button-spark" aria-hidden="true">✦</span>
+        </button>
+      </section>
+
+      <section class="page page--notes" data-page="1" aria-labelledby="notesTitle" aria-hidden="true">
+        <div class="notes-heading">
+          <p class="eyebrow">Words worth keeping</p>
+          <h2 id="notesTitle">A note from the heart.</h2>
+          <p>Two spaces are waiting for the words you want to share.</p>
+        </div>
+
+        <div class="note-grid">
+          <article class="message-card message-card--navy">
+            <span class="card-number">01</span>
+            <div class="message-icon" aria-hidden="true">✎</div>
+            <h3>What we appreciate</h3>
+            <p class="message-text">
+              <!--
+                MESSAGE 1: Ilagay ang first appreciation message dito.
+                Example: <span>Your message here...</span>
+              -->
+            </p>
+            <div class="card-flourish" aria-hidden="true">thank you · thank you · thank you</div>
+          </article>
+
+          <article class="message-card message-card--coral">
+            <span class="card-number">02</span>
+            <div class="message-icon" aria-hidden="true">☀</div>
+            <h3>What you taught us</h3>
+            <p class="message-text">
+              <!--
+                MESSAGE 2: Ilagay ang second appreciation message dito.
+                Example: <span>Your message here...</span>
+              -->
+            </p>
+            <div class="card-flourish" aria-hidden="true">with so much gratitude</div>
+          </article>
+        </div>
+
+        <div class="page-actions">
+          <button class="text-button" type="button" data-back>Back</button>
+          <button class="next-button next-button--small" type="button" data-next>
+            One more surprise
+            <span class="button-spark" aria-hidden="true">♪</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="page page--music" data-page="2" aria-labelledby="musicTitle" aria-hidden="true">
+        <div class="music-copy">
+          <p class="eyebrow">Press play, Prof!</p>
+          <h2 id="musicTitle">This song is for you.</h2>
+          <p>A small soundtrack for the big difference you make.</p>
+
+          <form class="song-form" id="songForm">
+            <label for="youtubeUrl">YouTube song link</label>
+            <div class="url-row">
+              <input
+                id="youtubeUrl"
+                name="youtubeUrl"
+                type="url"
+                inputmode="url"
+                placeholder="Paste a YouTube link here"
+                autocomplete="off"
+              />
+              <button type="submit">Load song</button>
+            </div>
+            <p class="form-status" id="formStatus" aria-live="polite">Add the final song whenever you're ready.</p>
+          </form>
+        </div>
+
+        <div class="player-card" id="playerCard">
+          <div class="player-sticker" aria-hidden="true">FOR PROF ♡</div>
+          <div class="video-shell" id="videoShell">
+            <div class="music-placeholder">
+              <div class="record" aria-hidden="true">
+                <div class="record-label">♪</div>
+              </div>
+              <strong>Your song will play here</strong>
+              <span>Paste its YouTube link to complete the surprise.</span>
+            </div>
+          </div>
+          <div class="equalizer" aria-hidden="true">
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+        </div>
+
+        <div class="final-note">
+          <span aria-hidden="true">✦</span>
+          <p>Thank you for helping us grow.</p>
+          <span aria-hidden="true">✦</span>
+        </div>
+
+        <div class="page-actions">
+          <button class="text-button" type="button" data-back>Back</button>
+          <button class="next-button next-button--small" type="button" id="celebrateAgain">
+            Celebrate again
+            <span class="button-spark" aria-hidden="true">✦</span>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <nav class="page-dots" aria-label="Greeting pages">
+      <button class="is-active" type="button" data-go="0" aria-label="Page 1: Greeting" aria-current="page"></button>
+      <button type="button" data-go="1" aria-label="Page 2: Appreciation messages"></button>
+      <button type="button" data-go="2" aria-label="Page 3: Song"></button>
+    </nav>
+
+    <div class="cursor-star" id="cursorStar" aria-hidden="true">✦</div>
+    <script src="./app.js"></script>
+  </body>
+</html>
