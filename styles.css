@@ -507,16 +507,6 @@ h2 {
   transform: rotate(1.4deg) translateY(10px);
 }
 
-.card-number {
-  position: absolute;
-  top: 22px;
-  right: 24px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  opacity: 0.65;
-}
-
 .message-icon {
   display: grid;
   place-items: center;
@@ -544,6 +534,17 @@ h2 {
   font-size: 1rem;
   line-height: 1.65;
   opacity: 0.96;
+}
+
+.song-ready {
+  width: min(100%, 520px);
+  margin-top: 24px;
+  padding: 15px 18px;
+  border: 1px solid rgba(23, 52, 93, 0.15);
+  border-radius: 14px;
+  color: var(--navy);
+  background: rgba(255, 253, 247, 0.7);
+  font-weight: 700;
 }
 
 .card-flourish {
